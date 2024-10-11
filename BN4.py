@@ -1,4 +1,4 @@
-# Agua = ◻ / Navio = ◼ / Navio atingido = ▣ 
+# Agua = ◻ / agua atingida = ◼ / Navio atingido = X
 xs1 = int(input("posicao do submarino: "))
 ys1 = int(input("posicao do submarino: "))
 xs2 = int(input("posicao do submarino: "))
