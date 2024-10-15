@@ -1,0 +1,100 @@
+print("\n|---------------------------|")
+print("| ===== BATALHA NAVAL ===== |")
+print("|---------------------------|\n")
+
+print("\n|--- ADICIONE OS SUBMARINOS ---|\n")
+
+posição_sub=0
+#faz tabela (por enquanto inutil)👇
+for i in range(1, 7):
+   print(f"{i:02}", end=" | ")
+   for i in range(1, 7):
+      print(f"◻", end=" ")  
+   print(f" | ", end="")
+   print()
+#--------------------------------------------------------
+#pergunta e valida as posições dos submarinos👇
+while posição_sub==0:
+    #perguntas 👇
+    p1x=int(input("Escreva a posição x do primeiro submarino"))
+    p1y=int(input("Escreva a posição y do primeiro submarino"))
+
+    p2x=int(input("Escreva a posição x do segundo submarino"))
+    p2y=int(input("Escreva a posição y do segundo submarino"))
+
+    p3x=int(input("Escreva a posição x do terceiro submarino"))
+    p3y=int(input("Escreva a posição y do terceiro submarino")) 
+
+    p4x=int(input("Escreva a posição x do quarto submarino"))
+    p4y=int(input("Escreva a posição y do quarto submarino"))
+
+    p5x=int(input("Escreva a posição x do quinto submarino"))
+    p5y=int(input("Escreva a posição y do quinto submarino"))
+    #------------------------------------------------------------------
+    #cálculo pra saber se as posições se sobrepõem 👇
+    dp1=(p1x/p1y)+p1x
+    dp2=(p2x/p2y)+p2x
+    dp3=(p3x/p3y)+p3x
+    dp4=(p4x/p4y)+p4x
+    dp5=(p5x/p5y)+p5x
+#------------------------------------------------------------------------
+        #verifica se os valores são iguais 👇
+    if dp1==dp2 or dp1==dp3 or dp1==dp4 or dp1==dp5 or dp2==dp3 or dp2==dp4 or dp2==dp5 or dp3==dp4 or dp3==dp5 or dp4==dp5:
+        print("Voçê colocou duas cordenadas iguais")
+#-----------------------------------------------------------------------------------------------------------------------------
+#verifica se os submarinos estão em posições vizinhas 👇
+
+    elif ((p1x==p2x) and ((p2y==p1y+1) or (p2y==p1y-1))) or ((p1y==p2y) and ((p2x==p1x+1) or (p2x==p1x-1))):
+        print("Você colocou dois submarinos um do lado do outro e isso não é permitido")
+
+    elif ((p1x==p3x) and ((p3y==p1y+1) or (p3y==p1y-1))) or ((p1y==p3y) and ((p3x==p1x+1) or (p3x==p1x-1))):
+        print("Você colocou dois submarinos um do lado do outro e isso não é permitido")
+
+    elif ((p1x==p4x) and ((p4y==p1y+1) or (p4y==p1y-1))) or ((p1y==p4y) and ((p4x==p1x+1) or (p4x==p1x-1))):
+        print("Você colocou dois submarinos um do lado do outro e isso não é permitido")
+
+    elif ((p1x==p5x) and ((p5y==p1y+1) or (p5y==p1y-1))) or ((p1y==p5y) and ((p5x==p1x+1) or (p5x==p1x-1))):
+        print("Você colocou dois submarinos um do lado do outro e isso não é permitido")
+
+    elif ((p2x==p3x) and ((p3y==p2y+1) or (p3y==p2y-1))) or ((p2y==p3y) and ((p3x==p2x+1) or (p3x==p2x-1))):
+        print("Você colocou dois submarinos um do lado do outro e isso não é permitido")
+
+    elif ((p2x==p4x) and ((p4y==p2y+1) or (p4y==p2y-1))) or ((p2y==p4y) and ((p4x==p2x+1) or (p4x==p2x-1))):
+        print("Você colocou dois submarinos um do lado do outro e isso não é permitido")
+
+    elif ((p2x==p5x) and ((p5y==p2y+1) or (p5y==p2y-1))) or ((p2y==p5y) and ((p5x==p2x+1) or (p5x==p2x-1))):
+        print("Você colocou dois submarinos um do lado do outro e isso não é permitido")
+
+    elif ((p3x==p4x) and ((p4y==p3y+1) or (p4y==p3y-1))) or ((p3y==p4y) and ((p4x==p3x+1) or (p4x==p3x-1))):
+        print("Você colocou dois submarinos um do lado do outro e isso não é permitido")
+
+    elif ((p3x==p5x) and ((p5y==p3y+1) or (p5y==p3y-1))) or ((p3y==p5y) and ((p5x==p3x+1) or (p5x==p3x-1))):
+        print("Você colocou dois submarinos um do lado do outro e isso não é permitido")
+
+    elif ((p4x==p5x) and ((p5y==p4y+1) or (p5y==p4y-1))) or ((p4y==p5y) and ((p5x==p4x+1) or (p5x==p4x-1))):
+        print("Você colocou dois submarinos um do lado do outro e isso não é permitido")
+#-----------------------------------------------------------------------------------------------------------------------------
+# verifica se as pisições são valores válidos 👇       
+    else:
+        if p1x<0 or p1y>6:
+            print("As posições do primeiro submarino são invalidas")
+        elif p2x<0 or p2y>6:
+            print("As posições do segundo submarino são invalidas")
+        elif p3x<0 or p3y>6:
+         print("As posições do terceiro submarino são invalidas")
+        elif p4x<0 or p4y>6:
+            print("As posições do quarto submarino são invalidas")
+        elif p5x<0 or p5y>6:
+            print("As posições do quintoo submarino são invalidas")
+#----------------------------------------------------------------------------------------------------------------------------
+# encerra loop 👇    
+        else:
+            posição_sub+=1
+        x=str(input("Quer continuar?(s/n)"))
+        if x=="n":
+            posição_sub+=1
+#--------------------------------------------------------------------------------------------------------------------
+#FIM👇
+print("Fim (por enquanto)")
+
+
