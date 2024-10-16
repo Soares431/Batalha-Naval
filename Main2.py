@@ -1,10 +1,8 @@
 # Agua = ◻ / Submarino = ◼ / Submarino Atingido = ▣ 
-# a variável pulo só existe para ter melhor controle do código.
-# bug de escolher o mesmo navio dnv e dnv para ganhar foi consertado.
 
 from random import randint as rand
 
-vida_jogaodor = 6
+vida_jogador = 6
 vida_inimigo = 5
 
 # Os "lev" irão determinar qual quadrado marcar
@@ -20,6 +18,7 @@ bt3 = 0
 bt4 = 0
 bt5 = 0
 
+# Coordenada do Navio do Inimigo 👇
 coordernada_X_1 = 0
 coordernada_Y_1 = 0
 
@@ -35,6 +34,8 @@ coordernada_Y_4 = 0
 coordernada_X_5 = 0
 coordernada_Y_5 = 0
 
+
+# enquanto as coordenadas forem iguais, ele continuarão a receber novos valores aleatorios👇
 while (coordernada_X_1 == coordernada_X_2 or coordernada_X_1 == coordernada_X_3 or coordernada_X_1 == coordernada_X_4 or coordernada_X_1 == coordernada_X_5 or coordernada_X_2 == coordernada_X_3 or coordernada_X_2 == coordernada_X_4 or coordernada_X_2 == coordernada_X_5 or coordernada_X_3 == coordernada_X_4 or coordernada_X_3 == coordernada_X_5 or coordernada_X_4 == coordernada_X_5) and (coordernada_Y_1 == coordernada_Y_2 or coordernada_Y_1 == coordernada_Y_3 or coordernada_Y_1 == coordernada_Y_4 or coordernada_Y_1 == coordernada_Y_5 or coordernada_Y_2 == coordernada_Y_3 or coordernada_Y_2 == coordernada_Y_4 or coordernada_Y_2 == coordernada_Y_5 or coordernada_Y_3 == coordernada_Y_4 or coordernada_Y_3 == coordernada_Y_5 or coordernada_Y_4 == coordernada_Y_5):
    
     coordernada_X_1 = rand(1, 5)
@@ -53,8 +54,9 @@ print("| ===== BATALHA NAVAL ===== |")
 print("|---------------------------|\n")
 
 print("|- Diga Coordenadas para Acerta os Navios do Oponente -|")
-print(f"|- Vidas Restantes do Jogador: {vida_jogaodor} -|")
+print(f"|- Vidas Restantes do Jogador: {vida_jogador} -|")
 
+#faz tabela (por enquanto inutil)👇
 print("\n  | 1  2  3  4  5  |")
 print("-----------------------")
 for i in range(1, 6):
@@ -63,8 +65,12 @@ for i in range(1, 6):
         print(f"◻", end="  ")
    print("| ")
 print("-----------------------\n")
-while vida_inimigo > 0 and vida_jogaodor > 0:
-    
+
+# Esse codigo continuará enquanto a vida do jogador e a vida do oponente for maior que 0 👇
+while vida_inimigo > 0 and vida_jogador > 0:
+
+      # pede ao Usuário digita as coordenadas para Acerta os Navios
+      # Continuará enquanto as coordenada não forem validas. 👇
       while True:
          posicao_x = int(input("Posição X: "))
          posicao_y = int(input("Posição Y: "))
@@ -74,6 +80,7 @@ while vida_inimigo > 0 and vida_jogaodor > 0:
          else:
             print("\n|- Coordenadas Digitadas Invalidas! -|\n")
       
+      # Se uma das coordenadas que foram digitas é iguail a coordenada de um navio. de maneira resumida. É impresso na tela "Bomba" e o oponente perde uma vida. caso contrario. É impresso na tela "água" e é o jogador que perde um vida. 👇 
       if (posicao_x == coordernada_X_1 and posicao_y == coordernada_Y_1) or (posicao_x == coordernada_X_2 and posicao_y == coordernada_Y_2) or (posicao_x == coordernada_X_3 and posicao_y == coordernada_Y_3) or (posicao_x == coordernada_X_4 and posicao_y == coordernada_Y_4) or (posicao_x == coordernada_X_5 and posicao_y == coordernada_Y_5):
          vida_inimigo -=1
          for i in range(1, 5):
@@ -134,7 +141,7 @@ while vida_inimigo > 0 and vida_jogaodor > 0:
             print("\n| -Bomba! -|\n")
             print(f"|- Navios Restantes do Oponente: {vida_inimigo} -|\n")
       else:
-         vida_jogaodor -=1
+         vida_jogador -=1
          print("\n  | 1  2  3  4  5  |")
          print("-----------------------")
          for i in range(1, 6):
@@ -156,7 +163,7 @@ while vida_inimigo > 0 and vida_jogaodor > 0:
             print("| ")
          print("-----------------------\n")
          print("\n|- Água! -") 
-         print(f"|- Vidas Restantes do Jogador: {vida_jogaodor} -|\n")
+         print(f"|- Vidas Restantes do Jogador: {vida_jogador} -|\n")
          
       (input("\nPressiona Qualquer Tecla para continuar...\n"))
       
