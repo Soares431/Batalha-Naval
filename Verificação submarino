@@ -123,6 +123,25 @@ while True:
         i+=1
     #-----------------------------------------------------------------------------------------------------------------------------------------------------
     else:
-        break
-#-------------------------------------------------------------------------------------------------------------------------------------       
-print(dicionario)
+        if p1x<0 or p1y>6:
+            print("As posições do primeiro submarino são invalidas")
+        elif p2x<0 or p2y>6:
+            print("As posições do segundo submarino são invalidas")
+        elif p3x<0 or p3y>6:
+         print("As posições do terceiro submarino são invalidas")
+        elif p4x<0 or p4y>6:
+            print("As posições do quarto submarino são invalidas")
+        elif p5x<0 or p5y>6:
+            print("As posições do quintoo submarino são invalidas")
+#----------------------------------------------------------------------------------------------------------------------------
+# encerra loop 👇    
+        else:
+            posição_sub+=1
+        x=str(input("Quer continuar?(s/n)"))
+        if x=="n":
+            posição_sub+=1
+#--------------------------------------------------------------------------------------------------------------------
+#FIM👇
+print("Fim (por enquanto)")
+
+
