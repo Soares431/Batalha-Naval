@@ -1,6 +1,14 @@
 # Agua = ◻ / Submarino = ◼ / Submarino Atingido = ▣ 
 
 from random import randint as rand
+RED = "\033[91m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+BLUE = "\033[94m"  # Azul claro
+DARK_BLUE = "\033[34m"  # Azul escuro
+RESET = "\033[0m"
+
+
 
 vida_jogador = 6
 vida_inimigo = 5
@@ -49,22 +57,22 @@ while (coordernada_X_1 == coordernada_X_2 or coordernada_X_1 == coordernada_X_3 
     coordernada_X_5 = rand(1, 5)
     coordernada_Y_5 = rand(1, 5)
 
-print("\n|---------------------------|")
-print("| ===== BATALHA NAVAL ===== |")
-print("|---------------------------|\n")
+print(f"{RED}\n|---------------------------|{RESET}")
+print(f"{YELLOW}| ===== BATALHA NAVAL ===== |{RESET}")
+print(f"{RED}|---------------------------|\n{RESET}")
 
 print("|- Diga Coordenadas para Acerta os Navios do Oponente -|")
 print(f"|- Vidas Restantes do Jogador: {vida_jogador} -|")
 
 #faz tabela (por enquanto inutil)👇
-print("\n  | 1  2  3  4  5  |")
-print("-----------------------")
+print(f"{RED}\n  | 1  2  3  4  5  |{RESET}")
+print(f"{YELLOW}-----------------------{RESET}")
 for i in range(1, 6):
-   print(i, end=" | ")
+   print(i, end=f"{YELLOW}| {RESET}")
    for j in range(1, 6):
-        print(f"◻", end="  ")
-   print("| ")
-print("-----------------------\n")
+        print(f"{DARK_BLUE}◻{RESET}", end="  ")
+   print(f"{YELLOW}| {RESET}")
+print(f"{YELLOW}-----------------------\n{RESET}")
 
 # Esse codigo continuará enquanto a vida do jogador e a vida do oponente for maior que 0 👇
 while vida_inimigo > 0 and vida_jogador > 0:
