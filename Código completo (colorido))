@@ -11,6 +11,7 @@ BLUE = "\033[94m"  # Azul claro
 DARK_BLUE = "\033[34m"  # Azul escuro
 RESET = "\033[0m"
 
+
 navios_jogador = 4
 navios_oponente = 4
 
@@ -60,17 +61,20 @@ print(f"{RED}\n|---------------------------|{RESET}")
 print(f"{YELLOW}| ===== BATALHA NAVAL ===== |{RESET}")
 print(f"{RED}|---------------------------|\n{RESET}")
 
-print(f"|- Vidas Restantes do Jogador: {navios_jogador} -|")
+print(f"|- Navios do Jogador: {navios_jogador} -|")
 
-#faz tabela (por enquanto inutil)👇
-print(f"{RED}\n  | 1  2  3  4  |{RESET}")
-print(f"{YELLOW}-----------------------{RESET}")
+#faz tabela do oponente
+
+print("\n Tabela Do Oponente ")
+print("-------------------")
+print(f"{RED}  | 1  2  3  4  |{RESET}")
+# print(f"{YELLOW}-------------------{RESET}")
 for i in range(1, 5):
    print(f"{RED}{i}{RESET}", end=f"{YELLOW} |{RESET} ")
    for j in range(1, 5):
         print(f"{BLUE}◻{RESET}", end="  ")
    print(f"{YELLOW}|{RESET} ")
-print(f"{YELLOW}-----------------------\n{RESET}")
+print(f"{YELLOW}-------------------{RESET}\n")
 
 # Esse codigo continuará enquanto a vida do jogador e a vida do oponente for maior que 0 👇
 while navios_oponente > 0 and navios_jogador > 0:
@@ -82,16 +86,17 @@ while navios_oponente > 0 and navios_jogador > 0:
       # Continuará enquanto as coordenada não forem validas. 👇
 
     if coordenadas_agua != "":
-        print(f"Coordenadas Acertadas água: \n{coordenadas_agua}")
+        print(f"Coordenadas 'da água': \n{coordenadas_agua}")
 
     while True:
-        posicao_x = (input("Posição x: "))
-        posicao_y = (input("Posição y: "))
+        linha_tabela = (input("Digite a linha da tabela do oponente: "))
+        coluna_tabela = (input("Digite a coluna da tabela do oponente: "))
         
-        if (posicao_x.isdigit()) and (posicao_y.isdigit()):
-            posicao_y = int(posicao_y)
-            posicao_x = int(posicao_x)
-            if (posicao_x > 0 and posicao_x <= 4) and (posicao_y > 0 and posicao_y <= 4):
+        
+        if (linha_tabela.isdigit()) and (coluna_tabela.isdigit()):
+            coluna_tabela = int(coluna_tabela)
+            linha_tabela = int(linha_tabela)
+            if (linha_tabela > 0 and linha_tabela <= 4) and (coluna_tabela > 0 and coluna_tabela <= 4):
                 break
             else:
                 print("\n|- Coordenadas Digitadas Invalidas! -|\n")
@@ -99,40 +104,42 @@ while navios_oponente > 0 and navios_jogador > 0:
             print("\n|- Valor Digitado Invalido! -|\n")
       
       # Se uma das coordenadas que foram digitas é iguail a coordenada de um navio. de maneira resumida. É impresso na tela "Bomba" e o oponente perde uma vida. caso contrario. É impresso na tela "água" e é o jogador que perde um vida. 👇 
-    if (posicao_x == coordernada_X_1 and posicao_y == coordernada_Y_1) or (posicao_x == coordernada_X_2 and posicao_y == coordernada_Y_2) or (posicao_x == coordernada_X_3 and posicao_y == coordernada_Y_3) or (posicao_x == coordernada_X_4 and posicao_y == coordernada_Y_4) :
+    if (linha_tabela == coordernada_X_1 and coluna_tabela == coordernada_Y_1) or (linha_tabela == coordernada_X_2 and coluna_tabela == coordernada_Y_2) or (linha_tabela == coordernada_X_3 and coluna_tabela == coordernada_Y_3) or (linha_tabela == coordernada_X_4 and coluna_tabela == coordernada_Y_4) :
         navios_oponente -=1
         for i in range(1, 5):
             for j in range(1, 5):
-                  if j == coordernada_X_1 and coordernada_X_1 == posicao_x and i == coordernada_Y_1 and coordernada_Y_1 == posicao_y:
+                  if j == coordernada_X_1 and coordernada_X_1 == linha_tabela and i == coordernada_Y_1 and coordernada_Y_1 == coluna_tabela:
                      coordenada_marcada_1 = True
                      bt1 +=1
-                  if j == coordernada_X_2 and coordernada_X_2 == posicao_x and i == coordernada_Y_2 and coordernada_Y_2 == posicao_y:
+                  if j == coordernada_X_2 and coordernada_X_2 == linha_tabela and i == coordernada_Y_2 and coordernada_Y_2 == coluna_tabela:
                      coordenada_marcada_2 = True
                      bt2 +=1
-                  if  j == coordernada_X_3 and coordernada_X_3 == posicao_x and i == coordernada_Y_3 and coordernada_Y_3 == posicao_y:
+                  if  j == coordernada_X_3 and coordernada_X_3 == linha_tabela and i == coordernada_Y_3 and coordernada_Y_3 == coluna_tabela:
                      coordenada_marcada_3 = True
                      bt3 +=1 
-                  if  j == coordernada_X_4 and coordernada_X_4 == posicao_x and i == coordernada_Y_4 and coordernada_Y_4 == posicao_y:
+                  if  j == coordernada_X_4 and coordernada_X_4 == linha_tabela and i == coordernada_Y_4 and coordernada_Y_4 == coluna_tabela:
                      coordenada_marcada_4 = True
                      bt4 +=1
-        print(f"{RED}\n  | 1  2  3  4  |{RESET}")
-        print(f"{YELLOW}-----------------------{RESET}")           
+        print("\n Tabela Do Oponente ")
+        print("-------------------")
+        print(f"{RED}  | 1  2  3  4  |{RESET}")
+        # print(f"{YELLOW}-------------------{RESET}")         
         for i in range(1, 5):
             print(f"{RED}{i}{RESET}", end=f"{YELLOW} |{RESET} ")
             for j in range(1,5):
                   if j == coordernada_Y_1 and i == coordernada_X_1 and coordenada_marcada_1 == True:
-                     print(f"{DARK_BLUE}/▣{RESET}", end="  ")
+                     print(f"{DARK_BLUE}▣{RESET}", end="  ")
                   elif j == coordernada_Y_2 and i == coordernada_X_2 and coordenada_marcada_2 == True:
-                     print(f"{DARK_BLUE}/▣{RESET}", end="  ")
+                     print(f"{DARK_BLUE}▣{RESET}", end="  ")
                   elif j == coordernada_Y_3 and i == coordernada_X_3 and coordenada_marcada_3 == True:
-                     print(f"{DARK_BLUE}/▣{RESET}", end="  ")
+                     print(f"{DARK_BLUE}▣{RESET}", end="  ")
                   elif j == coordernada_Y_4 and i == coordernada_X_4 and coordenada_marcada_4 == True:
-                     print(f"{DARK_BLUE}/▣{RESET}", end="  ")
+                     print(f"{DARK_BLUE}▣{RESET}", end="  ")
                 
                   else:
                      print(f"{BLUE}◻{RESET}", end="  ")
-            print(f"{YELLOW} |{RESET} ")
-        print(f"{YELLOW}-----------------------\n{RESET}")
+            print(f"{YELLOW}|{RESET} ")
+        print(f"{YELLOW}-------------------{RESET}")
         if bt1 > 1 or bt2 > 1 or bt3 > 1 or bt4 > 1:
             navios_oponente -=1
             print("\n|- Esse navio já foi afundando, tente de novo -|\n")
@@ -147,65 +154,57 @@ while navios_oponente > 0 and navios_jogador > 0:
         else:
             print("\n| -Bomba! -|\n")
             if navios_oponente == 0:
+                time.sleep(0.5)
                 print(f"{GREEN}\n=== You Win! ===\n{RESET}")
                 break
             
             print(f"|- Navios Restantes do Oponente: {navios_oponente} -|\n")
     else:
-        print(f"{RED}\n  | 1  2  3  4  |{RESET}")
-        print(f"{YELLOW}-----------------------{RESET}")
+        print("\n Tabela Do Oponente ")
+        print("-------------------")
+        print(f"{RED}  | 1  2  3  4  |{RESET}")
+        # print(f"{YELLOW}-------------------{RESET}")
         for i in range(1, 5):
             print(f"{RED}{i}{RESET}", end=f"{YELLOW} |{RESET} ")
             for j in range(1, 5):
                 if j == coordernada_Y_1 and i == coordernada_X_1 and coordenada_marcada_1 == True:
-                        print(f"{DARK_BLUE}/▣{RESET}", end="  ")
+                        print(f"{DARK_BLUE}▣{RESET}", end="  ")
                 elif j == coordernada_Y_2 and i == coordernada_X_2 and coordenada_marcada_2 == True:
-                        print(f"{DARK_BLUE}/▣{RESET}", end="  ")
+                        print(f"{DARK_BLUE}▣{RESET}", end="  ")
                 elif j == coordernada_Y_3 and i == coordernada_X_3 and coordenada_marcada_3 == True:
-                        print(f"{DARK_BLUE}/▣{RESET}", end="  ")
+                        print(f"{DARK_BLUE}▣{RESET}", end="  ")
                 elif j == coordernada_Y_4 and i == coordernada_X_4 and coordenada_marcada_4 == True:
-                        print(f"{DARK_BLUE}/▣{RESET}", end="  ")
-                    
+                        print(f"{DARK_BLUE}▣{RESET}", end="  ")
                 else:
                     print(f"{BLUE}◻{RESET}", end="  ")
             print(f"{YELLOW}|{RESET} ")
-        print(f"{YELLOW}-----------------------\n{RESET}")
-        print(coordernada_X_1)
-        print(coordernada_Y_1)
+        print(f"{YELLOW}-------------------{RESET}")
 
-        print(coordernada_X_2)
-        print(coordernada_Y_2)
-
-        print(coordernada_X_3)
-        print(coordernada_Y_3)
-
-        print(coordernada_X_4)
-        print(coordernada_Y_4)
-
-        coordenadas_agua += f"Y: {str(posicao_x)} - X: {str(posicao_y)} |\n"
+        coordenadas_agua += f"X: {str(linha_tabela)} - Y: {str(coluna_tabela)} |\n"
         print("\n|- Água! -|\n ") 
-    time.sleep(1.5)
+    time.sleep(1)
     (input("Pressiona Qualquer Tecla para continuar...\n"))
 
-    os.system("cls")
+    # os.system("cls")
 
-    print("\n === Vez do Oponente === \n")
-    time.sleep(2.5)
+    print(" === Vez do Oponente === \n")
+    time.sleep(2)
 
     if acerto <= chance_acerto:
         navios_jogador -= 1
         print("|- Oponente Destroiu um Navio! -|")
         
         if navios_jogador == 0:
+            time.sleep(0.5)
             print(f"{RED}\n === You Lose! ===\n{RESET}")
             break
         
-        print(f"|- Vidas Restantes do Jogador: {navios_jogador} -|\n")
+        print(f"|- Navios Restantes do Jogador: {navios_jogador} -|\n")
     else:
-        print("|- Oponente Errou um Navio -|\n")
+        print("|- Oponente Acertou na Água -|\n")
     
-    time.sleep(1.5)
+    time.sleep(1)
     (input("Pressiona Qualquer Tecla para continuar...\n"))
-    os.system("cls")
+    # os.system("cls")
 
     chance_total += 10
