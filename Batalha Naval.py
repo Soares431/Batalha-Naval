@@ -182,17 +182,17 @@ while navios_oponente > 0 and navios_jogador > 0:
 
         coordenadas_agua += f"X: {str(linha_tabela)} - Y: {str(coluna_tabela)} |\n"
         print("\n|- Água! -|\n ")
-    time.sleep(1)
+    time.sleep(0.5)
     (input("Pressiona Qualquer Tecla para continuar...\n"))
 
     # os.system("cls")
 
     print(" === Vez do Oponente === \n")
-    time.sleep(2)
+    time.sleep(1)
 
     if acerto <= chance_acerto:
         navios_jogador -= 1
-        print("|- Oponente Destroiu um Navio! -|")
+        print("|- Bomba! -|")
         
         if navios_jogador == 0:
             time.sleep(0.5)
@@ -201,9 +201,9 @@ while navios_oponente > 0 and navios_jogador > 0:
         
         print(f"|- Navios Restantes do Jogador: {navios_jogador} -|\n")
     else:
-        print("|- Oponente Acertou na Água -|\n")
+        print("|- Água! -|\n")
     
-    time.sleep(1)
+    time.sleep(0.5)
     (input("Pressiona Qualquer Tecla para continuar...\n"))
     # os.system("cls")
 
