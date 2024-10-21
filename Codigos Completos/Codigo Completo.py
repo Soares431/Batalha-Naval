@@ -208,3 +208,37 @@ while navios_oponente > 0 and navios_jogador > 0:
     # os.system("cls")
 
     chance_total += 10
+
+
+coordernada_X_1 = 0
+coordernada_Y_1 = 0
+
+coordernada_X_2 = 0
+coordernada_Y_2 = 0
+
+coordernada_X_3 = 0
+coordernada_Y_3 = 0
+
+coordernada_X_4 = 0
+coordernada_Y_4 = 0
+
+coordernada_X_5 = 0
+coordernada_Y_5 = 0
+
+chance_total = 10
+
+coordenadas_agua = ""
+
+# enquanto as coordenadas forem iguais, ele continuarão a receber novos valores aleatorios👇
+while (coordernada_X_1 == coordernada_X_2 or coordernada_X_1 == coordernada_X_3 or coordernada_X_1 == coordernada_X_4 or coordernada_X_1 == coordernada_X_5 or coordernada_X_2 == coordernada_X_3 or coordernada_X_2 == coordernada_X_4 or coordernada_X_2 == coordernada_X_5 or coordernada_X_3 == coordernada_X_4 or coordernada_X_3 == coordernada_X_5 or coordernada_X_4 == coordernada_X_5) and (coordernada_Y_1 == coordernada_Y_2 or coordernada_Y_1 == coordernada_Y_3 or coordernada_Y_1 == coordernada_Y_4 or coordernada_Y_1 == coordernada_Y_5 or coordernada_Y_2 == coordernada_Y_3 or coordernada_Y_2 == coordernada_Y_4 or coordernada_Y_2 == coordernada_Y_5 or coordernada_Y_3 == coordernada_Y_4 or coordernada_Y_3 == coordernada_Y_5 or coordernada_Y_4 == coordernada_Y_5):
+   
+   coordernada_X_1 = rand(1, 5)
+   coordernada_Y_1 = rand(1, 5)
+   coordernada_X_2 = rand(1, 5)
+   coordernada_Y_2 = rand(1, 5)
+   coordernada_X_3 = rand(1, 5)
+   coordernada_Y_3 = rand(1, 5)
+   coordernada_X_4 = rand(1, 5)
+   coordernada_Y_4 = rand(1, 5)
+   coordernada_X_5 = rand(1, 5)
+   coordernada_Y_5 = rand(1, 5)
